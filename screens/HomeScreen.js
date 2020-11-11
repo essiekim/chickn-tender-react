@@ -1,14 +1,24 @@
-import * as WebBrowser from 'expo-web-browser';
-import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import * as WebBrowser from 'expo-web-browser'
+import * as React from 'react'
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 
-import { MonoText } from '../components/StyledText';
+import { MonoText } from '../components/StyledText'
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.contentContainer}
+      >
         <View style={styles.welcomeContainer}>
           <Image
             source={
@@ -23,38 +33,48 @@ export default function HomeScreen() {
         <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
-          <Text style={styles.getStartedText}>Okay, this is a test. How does this work?</Text>
+          <Text style={styles.getStartedText}>
+            Okay, this is a test. How does this work?
+          </Text>
 
-          <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+          <View
+            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
+          >
             <MonoText>screens/HomeScreen.js</MonoText>
           </View>
 
-          <Text style={styles.getStartedText}>
-           Holy crap, that was such a quick reload. I AM AMAZING.
-          </Text>
+          <Text style={styles.getStartedText}>henlo</Text>
         </View>
 
         <View style={styles.helpContainer}>
           <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+            <Text style={styles.helpLinkText}>
+              Help, it didn’t automatically reload!
+            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
+        <Text style={styles.tabBarInfoText}>
+          This is a tab bar. You can edit it in:
+        </Text>
 
-        <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
+        <View
+          style={[styles.codeHighlightContainer, styles.navigationFilename]}
+        >
+          <MonoText style={styles.codeHighlightText}>
+            navigation/BottomTabNavigator.js
+          </MonoText>
         </View>
       </View>
     </View>
-  );
+  )
 }
 
 HomeScreen.navigationOptions = {
   header: null,
-};
+}
 
 function DevelopmentModeNotice() {
   if (__DEV__) {
@@ -62,31 +82,33 @@ function DevelopmentModeNotice() {
       <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
         Learn more
       </Text>
-    );
+    )
 
     return (
       <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use useful development
-        tools. {learnMoreButton}
+        Development mode is enabled: your app will be slower but you can use
+        useful development tools. {learnMoreButton}
       </Text>
-    );
+    )
   } else {
     return (
       <Text style={styles.developmentModeText}>
         You are not in development mode: your app will run at full speed.
       </Text>
-    );
+    )
   }
 }
 
 function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/workflow/development-mode/');
+  WebBrowser.openBrowserAsync(
+    'https://docs.expo.io/versions/latest/workflow/development-mode/'
+  )
 }
 
 function handleHelpPress() {
   WebBrowser.openBrowserAsync(
     'https://docs.expo.io/versions/latest/get-started/create-a-new-app/#making-your-first-change'
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -176,4 +198,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
-});
+})
